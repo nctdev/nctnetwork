@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'NCTNetwork | IT, Web & Network Solutions',
-  description: 'Discover NCTNetwork's innovative IT, web development, and networking solutions. View our latest projects and see how we can help transform your digital presence.',
+  description: 'Discover NCTNetwork innovative IT, web development, and networking solutions. View our latest projects and see how we can help transform your digital presence.',
   keywords: 'IT solutions, web development, networking, NCTNetwork',
   openGraph: {
     title: 'NCTNetwork - IT, Web & Network Solutions',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'NCTNetwork | IT, Web & Network Solutions',
-    description: 'Discover NCTNetwork's innovative IT, web development, and networking solutions.',
+    description: 'Discover NCTNetwork innovative IT, web development, and networking solutions.',
   },
 };
 
