@@ -17,11 +17,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: ['/', '/*.js', '/*.css'],
       },
     ],
-    // Optionally add a crawl delay (in seconds)
-    crawlDelay: 1,
-    // Path to your sitemap
     sitemap: 'https://nctnetwork.co.uk/sitemap.xml',
-    // Host directive is optional but recommended
     host: 'https://nctnetwork.co.uk',
   }
 }
