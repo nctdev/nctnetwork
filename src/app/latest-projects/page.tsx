@@ -8,6 +8,11 @@ import { MoonIcon, SunIcon } from 'lucide-react'
 import { Switch } from "@/components/ui/switch"
 import Link from 'next/link'
 
+export const metadata = {
+  title: 'Latest Projects | NCTNetwork',
+  description: 'View our latest IT, web development, and networking projects.',
+}
+
 export default function LatestProjects() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
