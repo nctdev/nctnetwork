@@ -4,12 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  trailingSlash: true,
-  distDir: '.next',
-  // Add routes that should be treated as static
-  experimental: {
-    staticPageGenerationTimeout: 300
-  }
+  trailingSlash: true
 }
 
 module.exports = nextConfig 
