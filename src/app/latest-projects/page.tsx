@@ -3,7 +3,6 @@
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { Switch } from "@/components/ui/switch"
 import Link from 'next/link'

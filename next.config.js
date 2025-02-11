@@ -5,14 +5,7 @@ const nextConfig = {
     unoptimized: true
   },
   trailingSlash: true,
-  distDir: '.next',
-  // Explicitly define routes that should be generated
-  async generateStaticParams() {
-    return [
-      { path: '/' },
-      { path: '/latest-projects' }
-    ]
-  }
+  distDir: '.next'
 }
 
 module.exports = nextConfig 
