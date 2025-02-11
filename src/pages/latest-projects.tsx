@@ -1,19 +1,36 @@
-"use client"
-
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { Switch } from "@/components/ui/switch"
 import Link from 'next/link'
-import { motion } from "framer-motion"
 
-export default function Page() {
+const projects = [
+  {
+    title: "E-Commerce Platform",
+    description: "A full-stack e-commerce solution with React and Node.js",
+    tech: ["React", "Node.js", "MongoDB", "Stripe"],
+    year: "2024"
+  },
+  {
+    title: "Network Infrastructure Upgrade",
+    description: "Complete network overhaul for a manufacturing facility",
+    tech: ["Cisco", "VLANs", "Security", "WiFi 6"],
+    year: "2023"
+  },
+  {
+    title: "Cloud Migration Project",
+    description: "Migration of legacy systems to cloud infrastructure",
+    tech: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+    year: "2023"
+  }
+]
+
+export default function LatestProjects() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [currentYear] = useState(new Date().getFullYear())
 
-  // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -60,19 +77,40 @@ export default function Page() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="border-4 border-orange-500 rounded-lg p-6 md:p-12 bg-white dark:bg-gray-800"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="dark:text-white text-gray-900">Welcome to </span>
-            <span className="text-orange-500">NCT</span>
-            <span className="dark:text-white text-gray-900">Network</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-8">
+            <span className="dark:text-white text-gray-900">Latest </span>
+            <span className="text-orange-500">Projects</span>
           </h1>
-          <p className="text-xl mb-8">
-            This page is to showcase our work in the IT, Web & Network Industry. Feel free to take a look at some of our latest projects.
-          </p>
-          <Link href="/latest-projects">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white">
-              Latest Projects
-            </Button>
-          </Link>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="p-6 rounded-lg dark:bg-gray-700 bg-white shadow-lg"
+              >
+                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-sm mb-4 dark:text-gray-300 text-gray-600">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs rounded-full bg-orange-500 text-white"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-sm dark:text-gray-400 text-gray-500">
+                  Year: {project.year}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </motion.main>
 
@@ -100,4 +138,4 @@ export default function Page() {
       </motion.footer>
     </div>
   )
-}
+} 
