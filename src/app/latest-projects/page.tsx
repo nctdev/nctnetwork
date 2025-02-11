@@ -8,10 +8,26 @@ import { MoonIcon, SunIcon } from 'lucide-react'
 import { Switch } from "@/components/ui/switch"
 import Link from 'next/link'
 
-export const metadata = {
-  title: 'Latest Projects | NCTNetwork',
-  description: 'View our latest IT, web development, and networking projects.',
-}
+const projects = [
+  {
+    title: "E-Commerce Platform",
+    description: "A full-stack e-commerce solution with React and Node.js",
+    tech: ["React", "Node.js", "MongoDB", "Stripe"],
+    year: "2024"
+  },
+  {
+    title: "Network Infrastructure Upgrade",
+    description: "Complete network overhaul for a manufacturing facility",
+    tech: ["Cisco", "VLANs", "Security", "WiFi 6"],
+    year: "2023"
+  },
+  {
+    title: "Cloud Migration Project",
+    description: "Migration of legacy systems to cloud infrastructure",
+    tech: ["AWS", "Docker", "Kubernetes", "CI/CD"],
+    year: "2023"
+  }
+]
 
 export default function LatestProjects() {
   const { theme, setTheme } = useTheme()
@@ -30,27 +46,6 @@ export default function LatestProjects() {
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
-
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with React and Node.js",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      year: "2024"
-    },
-    {
-      title: "Network Infrastructure Upgrade",
-      description: "Complete network overhaul for a manufacturing facility",
-      tech: ["Cisco", "VLANs", "Security", "WiFi 6"],
-      year: "2023"
-    },
-    {
-      title: "Cloud Migration Project",
-      description: "Migration of legacy systems to cloud infrastructure",
-      tech: ["AWS", "Docker", "Kubernetes", "CI/CD"],
-      year: "2023"
-    }
-  ]
 
   return (
     <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-gray-100 bg-gray-100 text-gray-900">
