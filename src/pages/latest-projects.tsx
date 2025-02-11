@@ -75,7 +75,7 @@ export default function LatestProjects() {
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="border-4 border-orange-500 rounded-lg p-6 md:p-12 bg-white dark:bg-gray-800"
+          className="border-4 border-orange-500 rounded-xl p-6 md:p-12 bg-white dark:bg-gray-800 shadow-lg"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-8">
             <span className="dark:text-white text-gray-900">Latest </span>
@@ -89,9 +89,9 @@ export default function LatestProjects() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="p-6 rounded-lg dark:bg-gray-700 bg-white shadow-lg"
+                className="p-6 rounded-xl dark:bg-gray-700 bg-gray-50 shadow-lg border border-gray-200 dark:border-gray-600"
               >
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <h3 className="text-xl font-bold mb-2 dark:text-white text-gray-900">{project.title}</h3>
                 <p className="text-sm mb-4 dark:text-gray-300 text-gray-600">
                   {project.description}
                 </p>
@@ -99,7 +99,7 @@ export default function LatestProjects() {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 text-xs rounded-full bg-orange-500 text-white"
+                      className="px-3 py-1 text-xs rounded-lg bg-orange-500 text-white font-medium"
                     >
                       {tech}
                     </span>
