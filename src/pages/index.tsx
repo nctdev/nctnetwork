@@ -56,7 +56,8 @@ export default function Home() {
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="border-4 border-orange-500 rounded-xl p-6 md:p-12 bg-white dark:bg-gray-800 shadow-lg"
+          className="border-[3px] border-orange-500 p-6 md:p-12 bg-white dark:bg-gray-800 shadow-lg overflow-hidden"
+          style={{ borderRadius: '6px' }}
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="dark:text-white text-gray-900">Welcome to </span>
@@ -67,7 +68,7 @@ export default function Home() {
             This page is to showcase our work in the IT, Web & Network Industry. Feel free to take a look at some of our latest projects.
           </p>
           <Link href="/latest-projects">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-2 text-lg font-medium transition-colors duration-200">
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white">
               Latest Projects →
             </Button>
           </Link>
