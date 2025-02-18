@@ -1,0 +1,21 @@
+# robots.txt for https://nctnetwork.co.uk
+User-Agent: *
+Allow: /
+Allow: /sitemap.xml
+Allow: /_next/static/
+Disallow: /api/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /_next/image*
+
+User-Agent: Googlebot
+Allow: /
+Allow: /*.js
+Allow: /*.css
+
+User-Agent: Bingbot
+Allow: /
+Allow: /*.js
+Allow: /*.css
+
+Sitemap: https://nctnetwork.co.uk/sitemap.xml
