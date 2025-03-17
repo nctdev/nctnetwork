@@ -21,6 +21,8 @@ const projects = [
     description: "More projects coming soon!",
     imageUrl: "", // Ensure this is defined or provide a valid image URL
     linkUrl: "", // Ensure this is defined or provide a valid link URL
+    tech: ["Coming Soon"],  // Add tech array
+    year: "2024",  // Add year
     alt: "Network Infrastructure Upgrade" // Provide alt text
   },
   {
@@ -28,6 +30,8 @@ const projects = [
     description: "More projects coming soon!",
     imageUrl: "", // Ensure this is defined or provide a valid image URL
     linkUrl: "", // Ensure this is defined or provide a valid link URL
+    tech: ["Coming Soon"],  // Add tech array
+    year: "2024",  // Add year
     alt: "Cloud Migration Project" // Provide alt text
   }
 ]
@@ -122,16 +126,18 @@ export default function LatestProjects() {
                 <p className="text-sm mb-4 dark:text-gray-300 text-gray-600">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-xs rounded-lg bg-orange-500 text-white font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                {project.tech && (
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 text-xs rounded-lg bg-orange-500 text-white font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <p className="text-sm dark:text-gray-400 text-gray-500">
                   Year: {project.year}
                 </p>
