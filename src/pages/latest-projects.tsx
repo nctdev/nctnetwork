@@ -14,23 +14,21 @@ const projects = [
     linkUrl: "https://whiskyonthe.rocks", // Correct link URL
     tech: ["Wordpress"],
     year: "2024",
-    alt: "Whisky on the Rocks logo" // Add alt text for accessibility
+    alt: "Whisky on the Rocks logo" // Ensure alt text is defined
   },
   {
     title: "Coming Soon!",
     description: "More projects coming soon!",
     imageUrl: "", // Ensure this is defined or provide a valid image URL
     linkUrl: "", // Ensure this is defined or provide a valid link URL
-    tech: ["next.js"],
-    year: "2025"
+    alt: "Network Infrastructure Upgrade" // Provide alt text
   },
   {
     title: "Coming Soon!",
     description: "More projects coming soon!",
     imageUrl: "", // Ensure this is defined or provide a valid image URL
     linkUrl: "", // Ensure this is defined or provide a valid link URL
-    tech: ["React"],
-    year: "2025"
+    alt: "Cloud Migration Project" // Provide alt text
   }
 ]
 
@@ -104,21 +102,21 @@ export default function LatestProjects() {
                   <Link href={project.linkUrl} passHref>
                     <Image 
                       src={project.imageUrl} 
-                      alt={project.alt} 
+                      alt={project.alt || "Default alt text"} // Provide a fallback for alt text
                       width={500} 
                       height={300} 
                       className="rounded-md mb-4 cursor-pointer" 
-                      loading="lazy"
+                      loading="lazy" // Optional: Add loading attribute
                     />
                   </Link>
                 ) : (
                   <Image 
                     src={project.imageUrl} 
-                    alt={project.alt} 
+                    alt={project.alt || "Default alt text"} // Provide a fallback for alt text
                     width={500} 
                     height={300} 
                     className="rounded-md mb-4" 
-                    loading="lazy"
+                    loading="lazy" // Optional: Add loading attribute
                   />
                 )}
                 <p className="text-sm mb-4 dark:text-gray-300 text-gray-600">
