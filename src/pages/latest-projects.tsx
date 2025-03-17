@@ -4,25 +4,33 @@ import { motion } from "framer-motion"
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { Switch } from "@/components/ui/switch"
 import Link from 'next/link'
+import Image from 'next/image'
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with React and Node.js",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
-    year: "2024"
+    title: "whiskyonthe.rocks",
+    description: "whiskyonthe.rocks is a whisky blog with a focus on reviews of single malt scotch whisky.",
+    imageUrl: "/images/whiskyontherocks.png.webp", // Add the image URL
+    linkUrl: "https://whiskyonthe.rocks", // Correct link URL
+    tech: ["Wordpress"],
+    year: "2024",
+    alt: "Whisky on the Rocks logo" // Add alt text for accessibility
   },
   {
-    title: "Network Infrastructure Upgrade",
-    description: "Complete network overhaul for a manufacturing facility",
-    tech: ["Cisco", "VLANs", "Security", "WiFi 6"],
-    year: "2023"
+    title: "Coming Soon!",
+    description: "More projects coming soon!",
+    imageUrl: "", // Ensure this is defined or provide a valid image URL
+    linkUrl: "", // Ensure this is defined or provide a valid link URL
+    tech: ["next.js"],
+    year: "2025"
   },
   {
-    title: "Cloud Migration Project",
-    description: "Migration of legacy systems to cloud infrastructure",
-    tech: ["AWS", "Docker", "Kubernetes", "CI/CD"],
-    year: "2023"
+    title: "Coming Soon!",
+    description: "More projects coming soon!",
+    imageUrl: "", // Ensure this is defined or provide a valid image URL
+    linkUrl: "", // Ensure this is defined or provide a valid link URL
+    tech: ["React"],
+    year: "2025"
   }
 ]
 
@@ -92,6 +100,27 @@ export default function LatestProjects() {
                 className="p-6 rounded-xl dark:bg-gray-700 bg-gray-50 shadow-lg border border-gray-200 dark:border-gray-600"
               >
                 <h3 className="text-xl font-bold mb-2 dark:text-white text-gray-900">{project.title}</h3>
+                {project.linkUrl ? (
+                  <Link href={project.linkUrl} passHref>
+                    <Image 
+                      src={project.imageUrl} 
+                      alt={project.alt} 
+                      width={500} 
+                      height={300} 
+                      className="rounded-md mb-4 cursor-pointer" 
+                      loading="lazy"
+                    />
+                  </Link>
+                ) : (
+                  <Image 
+                    src={project.imageUrl} 
+                    alt={project.alt} 
+                    width={500} 
+                    height={300} 
+                    className="rounded-md mb-4" 
+                    loading="lazy"
+                  />
+                )}
                 <p className="text-sm mb-4 dark:text-gray-300 text-gray-600">
                   {project.description}
                 </p>
