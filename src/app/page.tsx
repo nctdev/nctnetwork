@@ -1,3 +1,5 @@
+"use client"
+
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
@@ -50,13 +52,13 @@ export default function Home() {
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="flex-grow container mx-auto p-4 md:p-8"
+        className="flex-grow container mx-auto px-4 py-4"
       >
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="border-[3px] border-orange-500 p-6 md:p-12 bg-white dark:bg-gray-800 shadow-lg overflow-hidden"
+          className="border-[3px] border-orange-500 p-4 md:p-6 bg-white dark:bg-gray-800 shadow-lg"
           style={{ borderRadius: '6px' }}
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -79,7 +81,7 @@ export default function Home() {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="border-t dark:border-gray-800 border-gray-300 p-4 mt-8"
+        className="border-t dark:border-gray-800 border-gray-300 p-4 mt-4"
       >
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="text-sm dark:text-gray-500 text-gray-600 mb-4 md:mb-0">
@@ -99,4 +101,4 @@ export default function Home() {
       </motion.footer>
     </div>
   )
-} 
+}
