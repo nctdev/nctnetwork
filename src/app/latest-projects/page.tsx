@@ -16,6 +16,7 @@ const projects = [
     year: "2024",
     link: "https://whiskyonthe.rocks",
     image: "/images/whiskyontherocks.png.webp",
+    imageAlt: "Screenshot of whiskyonthe.rocks website showing whisky bottle reviews and tasting notes",
     status: "completed"
   },
   {
@@ -25,6 +26,7 @@ const projects = [
     year: "2024",
     link: "https://scotch-whisky-map-v2.vercel.app/",
     image: "/images/whisky-map-clip.png",
+    imageAlt: "Interactive map of Scottish whisky distilleries with pins marking different locations",
     status: "completed"
   },
   {
@@ -109,7 +111,7 @@ export default function LatestProjects() {
                     <a href={project.link} rel="noopener" title={`Visit ${project.title} - ${project.description}`} target="_blank">
                       <Image
                         src={project.image || "/images/placeholder.png"}
-                        alt={`${project.title} screenshot`}
+                        alt={project.imageAlt || `${project.title} screenshot`}
                         width={400}
                         height={200}
                         className="rounded-md mb-4 cursor-pointer"
@@ -136,7 +138,7 @@ export default function LatestProjects() {
                     <div className="rounded-md mb-4 w-full h-[200px] flex items-center justify-center bg-gray-200 dark:bg-gray-800">
                       <Image 
                         src="/images/placeholder.png" 
-                        alt="Coming soon placeholder" 
+                        alt="Coming soon project placeholder"
                         width={32} 
                         height={32} 
                       />
