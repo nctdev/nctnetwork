@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import '@/styles/globals.css';
-import { Button } from '@/components/ui/button';
+
 import { ThemeProvider } from 'next-themes';
 
 export const metadata: Metadata = {
