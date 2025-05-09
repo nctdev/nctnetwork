@@ -1,6 +1,5 @@
 "use client"
 
-import { Metadata } from "next"
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
@@ -8,17 +7,7 @@ import { MoonIcon, SunIcon } from 'lucide-react'
 import { Switch } from "@/components/ui/switch"
 import Link from 'next/link'
 import { motion } from "framer-motion"
-
-export const metadata: Metadata = {
-  title: "NCT Network",
-  description: "IT, Web & Network Developments",
-  alternates: {
-    canonical: "https://nctnetwork.co.uk",
-    languages: {
-      "en-GB": "https://nctnetwork.co.uk",
-    },
-  },
-}
+import { metadata } from './metadata'
 
 export default function Home() {
   const { theme, setTheme } = useTheme()

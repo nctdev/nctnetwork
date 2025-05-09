@@ -1,6 +1,5 @@
 "use client"
 
-import { Metadata } from "next"
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 import { MoonIcon, SunIcon } from 'lucide-react'
@@ -8,17 +7,7 @@ import { Switch } from "@/components/ui/switch"
 import Link from 'next/link'
 import { motion } from "framer-motion"
 import Image from 'next/image'
-
-export const metadata: Metadata = {
-  title: "Latest Projects - NCT Network",
-  description: "Explore our latest web development projects and case studies",
-  alternates: {
-    canonical: "https://nctnetwork.co.uk/latest-projects",
-    languages: {
-      "en-GB": "https://nctnetwork.co.uk/latest-projects",
-    },
-  },
-}
+import { metadata } from './metadata'
 
 const projects = [
   {
