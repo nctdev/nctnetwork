@@ -7,7 +7,6 @@ import { MoonIcon, SunIcon } from 'lucide-react'
 import { Switch } from "@/components/ui/switch"
 import Link from 'next/link'
 import { motion } from "framer-motion"
-import { metadata } from './metadata'
 
 export default function Home() {
   const { theme, setTheme } = useTheme()
