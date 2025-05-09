@@ -1,14 +1,24 @@
-"use client"
+import { Metadata } from "next";
+import LatestProjectsClient from "./LatestProjectsClient";
 
-import { useTheme } from "next-themes"
-import { useState, useEffect } from "react"
-import { MoonIcon, SunIcon } from 'lucide-react'
-import { Switch } from "@/components/ui/switch"
-import Link from 'next/link'
-import { motion } from "framer-motion"
-import Image from 'next/image'
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Latest Projects - NCT Network",
+    description: "Explore our latest web development projects and case studies",
+    alternates: {
+      canonical: "https://nctnetwork.co.uk/latest-projects",
+      languages: {
+        "en-GB": "https://nctnetwork.co.uk/latest-projects",
+      },
+    },
+    metadataBase: new URL("https://nctnetwork.co.uk"),
+  };
+}
 
-const projects = [
+export default function LatestProjects() {
+  return <LatestProjectsClient />;
+}
+
   {
     title: "whiskyonthe.rocks",
     description: "whiskyonthe.rocks is a whisky blog with a focus on reviews of single malt scotch whisky.",
