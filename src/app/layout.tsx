@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import '@/styles/globals.css';
-
 import { ThemeProvider } from 'next-themes';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'NCT Network',
@@ -27,6 +27,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="qUg220+3azEuraIDkbyxuA"
+          strategy="lazyOnload"
+          async
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-background font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex-grow">
