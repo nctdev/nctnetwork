@@ -1,9 +1,6 @@
 "use client"
 
-import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
-import { MoonIcon, SunIcon } from 'lucide-react'
-import { Switch } from "@/components/ui/switch"
 import Link from 'next/link'
 import { motion } from "framer-motion"
 import Image from 'next/image'
@@ -38,12 +35,11 @@ const projects = [
 ]
 
 export default function LatestProjectsClient() {
-  const { theme, setTheme } = useTheme()
+  
   const [mounted, setMounted] = useState(false)
-  const [currentYear] = useState(new Date().getFullYear())
+  
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
-  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
   return (
     <div className="min-h-screen flex flex-col dark:bg-gray-900 dark:text-gray-100 bg-gray-100 text-gray-900">
       <motion.header initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }} className="border-b dark:border-gray-800 border-gray-300 p-4">
