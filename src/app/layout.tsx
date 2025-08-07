@@ -35,11 +35,9 @@ export default function RootLayout({
           async
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-background font-sans antialiased">
+      <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex-grow">
-            {children}
-          </div>
+          {children}
         </ThemeProvider>
       </body>
     </html>
