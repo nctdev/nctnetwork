@@ -6,30 +6,8 @@ import { Footer } from '@/components/ui/Footer'
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Image from 'next/image'
+import { projects } from '@/data/projects'
 
-// Projects data
-const projects = [
-  {
-    title: "whiskyonthe.rocks",
-    description: "whiskyonthe.rocks is a whisky blog with a focus on reviews of single malt scotch whisky.",
-    technology: "Wordpress",
-    year: "2024",
-    link: "https://whiskyonthe.rocks",
-    image: "/images/whiskyontherocks.png.webp",
-    imageAlt: "Screenshot of whiskyonthe.rocks website showing whisky bottle reviews and tasting notes",
-    status: "completed"
-  },
-  {
-    title: "Scotch Whisky Map",
-    description: "An interactive map of Scottish whisky distilleries with detailed information and locations.",
-    technology: "WordPress & Leaflet",
-    year: "2024",
-    link: "https://whiskyonthe.rocks/learn-about-whisky/scotland-whisky-map/",
-    image: "/images/whisky-map-clip.png",
-    imageAlt: "Interactive map of Scottish whisky distilleries with pins marking different locations",
-    status: "completed"
-  }
-]
 
 export default function HomeClient() {
   const [mounted, setMounted] = useState(false)
@@ -41,7 +19,8 @@ export default function HomeClient() {
     e.preventDefault()
     const element = document.getElementById('latest-projects')
     if (element) {
-      const headerHeight = 80 // Account for fixed header
+      const header = document.querySelector('header')
+      const headerHeight = header ? header.offsetHeight : 80 // Fallback to 80px if header not found
       const elementPosition = element.offsetTop - headerHeight
       window.scrollTo({
         top: elementPosition,
@@ -59,8 +38,8 @@ export default function HomeClient() {
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-indigo-400 to-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
-          <div className="absolute top-40 left-1/2 w-80 h-80 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-500"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-40 left-1/2 w-80 h-80 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -117,7 +96,7 @@ export default function HomeClient() {
                 size="lg"
               >
                 View Our Work
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Scroll down to projects">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </Button>
@@ -185,13 +164,13 @@ export default function HomeClient() {
                           target="_blank"
                           className="block mb-6 rounded-xl overflow-hidden group-hover:shadow-lg transition-shadow duration-300"
                           style={{
-                            backgroundColor: project.title === "whiskyonthe.rocks" ? "#e2d8c8" : undefined
+                            backgroundColor: project.backgroundColor
                           }}
                         >
                           <div 
                             className="relative w-full h-56 sm:h-64 bg-slate-100 dark:bg-slate-700"
                             style={{
-                              backgroundColor: project.title === "whiskyonthe.rocks" ? "#e2d8c8" : undefined
+                              backgroundColor: project.backgroundColor
                             }}
                           >
                             <Image
@@ -199,7 +178,7 @@ export default function HomeClient() {
                               alt={project.imageAlt || `${project.title} screenshot`}
                               fill
                               className={`transition-transform duration-500 group-hover:scale-105 ${
-                                project.title === "whiskyonthe.rocks" 
+                                project.backgroundColor 
                                   ? "object-contain p-4" 
                                   : "object-cover"
                               }`}
@@ -265,7 +244,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      <Footer />
+      <Footer brandName="NCTNetwork" brandColor="#f97316" />
     </div>
   )
 }
