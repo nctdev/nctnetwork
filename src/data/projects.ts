@@ -17,7 +17,7 @@ export const projects: Project[] = [
     technology: "Wordpress",
     year: "2024",
     link: "https://whiskyonthe.rocks",
-    image: "/images/whiskyontherocks.webp",
+    image: "/images/whiskyontherocks.png.webp",
     imageAlt: "Screenshot of whiskyonthe.rocks website showing whisky bottle reviews and tasting notes",
     backgroundColor: "#e2d8c8",
     status: "completed"
