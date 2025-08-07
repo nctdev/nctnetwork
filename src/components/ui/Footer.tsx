@@ -53,10 +53,7 @@ export function Footer({ brandName = "NCTNetwork", brandColor = "#f97316" }: Foo
                 <Switch
                   checked={theme === 'dark'}
                   onCheckedChange={toggleTheme}
-                  className="data-[state=unchecked]:bg-slate-300"
-                  style={{
-                    backgroundColor: theme === 'dark' ? brandColor : undefined
-                  }}
+                  className={`data-[state=unchecked]:bg-slate-300 data-[state=checked]:!bg-[${brandColor}]`}
                   aria-label="Toggle dark mode"
                 />
                 <MoonIcon className="h-4 w-4 text-slate-600 dark:text-slate-400" />
