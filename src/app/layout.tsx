@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
-import '@/styles/globals.css';
 import { ThemeProvider } from 'next-themes';
 import Script from 'next/script';
 import { Inter } from 'next/font/google';
+import { CriticalCSS } from '@/components/CriticalCSS';
+import { DeferredStyles } from '@/components/DeferredStyles';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -61,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <CriticalCSS />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="preconnect" href="https://analytics.ahrefs.com" />
@@ -70,6 +72,38 @@ export default function RootLayout({
         <link rel="preload" href="/images/whiskyontherocks.png.webp" as="image" type="image/webp" />
         <link rel="preload" href="/images/whisky-map-clip.png" as="image" type="image/png" />
         <Script
+          id="defer-styles"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Defer non-critical CSS loading
+              const loadCSS = function(href, before, media) {
+                var link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.href = href;
+                link.media = media || "all";
+                if (before) {
+                  before.parentNode.insertBefore(link, before);
+                } else {
+                  document.head.appendChild(link);
+                }
+                return link;
+              };
+              
+              // Load main stylesheet after critical rendering
+              window.addEventListener('load', function() {
+                loadCSS('/_next/static/css/app/layout.css');
+                // Show below-fold content after styles load
+                setTimeout(function() {
+                  document.querySelectorAll('.below-fold').forEach(function(el) {
+                    el.style.visibility = 'visible';
+                  });
+                }, 100);
+              });
+            `,
+          }}
+        />
+        <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="qUg220+3azEuraIDkbyxuA"
           strategy="lazyOnload"
@@ -77,6 +111,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`min-h-screen bg-background font-sans antialiased ${inter.variable}`}>
+        <DeferredStyles />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>

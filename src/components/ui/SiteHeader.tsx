@@ -39,17 +39,17 @@ export function SiteHeader() {
       className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-white/20 dark:border-slate-800/20 shadow-lg"
       role="banner"
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
+      <div className="nav-container">
+        <div className="flex justify-between items-center w-full">
           <motion.button 
             onClick={(e) => scrollToSection('home', e)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-2xl font-bold transition-all duration-300"
+            className="logo"
             aria-label="NCT Network - Go to homepage"
           >
-            <span className="text-[#f97316]">NCT</span>
-            <span className="text-slate-700 dark:text-slate-300">Network</span>
+            <span className="logo-accent">NCT</span>
+            <span className="logo-text">Network</span>
           </motion.button>
           
           <nav className="hidden md:block" role="navigation" aria-label="Main navigation">

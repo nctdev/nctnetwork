@@ -36,11 +36,11 @@ export default function HomeClient() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-blue-900 dark:to-indigo-900 pt-20">
+    <div className="min-h-screen pt-20">
       <SiteHeader />
       
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center relative overflow-hidden" role="main" aria-label="Welcome section">
+      <section id="home" className="hero-section" role="main" aria-label="Welcome section">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-indigo-400 to-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -48,7 +48,7 @@ export default function HomeClient() {
           <div className="absolute top-40 left-1/2 w-80 h-80 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
         </div>
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="hero-container">
           <motion.div 
             initial={{ y: 40, opacity: 0 }} 
             animate={{ y: 0, opacity: 1 }} 
@@ -69,7 +69,7 @@ export default function HomeClient() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              className="hero-heading"
               role="heading"
               aria-level={1}
             >
@@ -84,7 +84,7 @@ export default function HomeClient() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed"
+              className="hero-subtitle"
             >
               Crafting next-generation digital experiences with cutting-edge{" "}
               <span className="text-[#f97316] font-semibold">AI</span>,{" "}
@@ -100,7 +100,7 @@ export default function HomeClient() {
             >
               <Button 
                 onClick={scrollToProjects} 
-                className="bg-gradient-to-r from-[#f97316] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="btn-primary"
                 size="lg"
                 aria-label="View our work - scroll to projects section"
               >
@@ -115,7 +115,7 @@ export default function HomeClient() {
       </section>
 
       {/* Projects Section */}
-      <section id="latest-projects" className="py-20 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm" role="region" aria-labelledby="projects-heading">
+      <section id="latest-projects" className="below-fold py-20 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm" role="region" aria-labelledby="projects-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ y: 40, opacity: 0 }} 
