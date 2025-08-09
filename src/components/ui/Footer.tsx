@@ -32,6 +32,8 @@ export function Footer({ brandName = "NCTNetwork", brandColor = "#f97316" }: Foo
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.6 }}
       className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border-t border-white/20 dark:border-slate-800/20"
+      role="contentinfo"
+      aria-label="Site footer"
     >
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -54,7 +56,7 @@ export function Footer({ brandName = "NCTNetwork", brandColor = "#f97316" }: Foo
                   checked={theme === 'dark'}
                   onCheckedChange={toggleTheme}
                   className={`data-[state=unchecked]:bg-slate-300 data-[state=checked]:!bg-[${brandColor}]`}
-                  aria-label="Toggle dark mode"
+                  aria-label="Toggle between light and dark theme"
                 />
                 <MoonIcon className="h-4 w-4 text-slate-600 dark:text-slate-400" />
               </div>

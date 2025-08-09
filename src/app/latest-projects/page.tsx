@@ -6,6 +6,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "Latest Projects - NCTNetwork",
     description: "Explore our latest web development projects including whisky blogs and interactive mapping solutions. View our portfolio of React, Next.js, and WordPress projects.",
     keywords: "Projects, Portfolio, Web Development, React, Next.js, WordPress, Interactive Maps, whisky blog",
+    authors: [{ name: 'NCT Network', url: 'https://nctnetwork.co.uk' }],
+    creator: 'NCT Network',
+    publisher: 'NCT Network',
     alternates: {
       canonical: "https://nctnetwork.co.uk/#latest-projects",
       languages: {
@@ -19,6 +22,22 @@ export async function generateMetadata(): Promise<Metadata> {
       url: "https://nctnetwork.co.uk/#latest-projects",
       siteName: "NCTNetwork",
       type: "website",
+      locale: "en_GB",
+      images: [
+        {
+          url: "/images/og-projects.jpg",
+          width: 1200,
+          height: 630,
+          alt: "NCTNetwork Latest Projects Portfolio",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Latest Projects - NCTNetwork",
+      description: "Explore our latest web development projects and case studies",
+      creator: "@nctnetwork",
+      images: ["/images/og-projects.jpg"],
     },
     other: {
       "structured-data": JSON.stringify({

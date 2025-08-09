@@ -34,7 +34,7 @@ export default function HomeClient() {
       <SiteHeader />
       
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
+      <section id="home" className="min-h-screen flex items-center relative overflow-hidden" role="main" aria-label="Welcome section">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-indigo-400 to-purple-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -64,6 +64,8 @@ export default function HomeClient() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              role="heading"
+              aria-level={1}
             >
               <span className="bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 dark:from-white dark:via-indigo-200 dark:to-white bg-clip-text text-transparent">
                 Welcome to{" "}
@@ -94,9 +96,10 @@ export default function HomeClient() {
                 onClick={scrollToProjects} 
                 className="bg-gradient-to-r from-[#f97316] to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 size="lg"
+                aria-label="View our work - scroll to projects section"
               >
                 View Our Work
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Scroll down to projects">
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </Button>
@@ -106,7 +109,7 @@ export default function HomeClient() {
       </section>
 
       {/* Projects Section */}
-      <section id="latest-projects" className="py-20 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
+      <section id="latest-projects" className="py-20 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm" role="region" aria-labelledby="projects-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ y: 40, opacity: 0 }} 
@@ -123,7 +126,7 @@ export default function HomeClient() {
               <span className="text-[#f97316]">Our Work</span>
             </motion.div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 dark:from-white dark:via-indigo-200 dark:to-white bg-clip-text text-transparent">
+            <h2 id="projects-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 dark:from-white dark:via-indigo-200 dark:to-white bg-clip-text text-transparent">
               Latest <span className="text-[#f97316]">Projects</span>
             </h2>
             
@@ -132,7 +135,7 @@ export default function HomeClient() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto" role="list" aria-label="Project portfolio">
             {projects.map((project, index) => (
               <motion.div 
                 key={index} 
@@ -140,6 +143,7 @@ export default function HomeClient() {
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ delay: 0.1 * index + 0.6, duration: 0.8 }}
                 className="group relative"
+                role="listitem"
               >
                 <div className="relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-slate-700/20 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] h-full">
                   {/* Gradient overlay for hover effect */}
@@ -149,7 +153,7 @@ export default function HomeClient() {
                     {project.status === "completed" ? (
                       <>
                         <div className="flex items-start justify-between mb-4">
-                          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-[#f97316] transition-colors pr-4">
+                          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-[#f97316] transition-colors pr-4" role="heading" aria-level={3}>
                             {project.title}
                           </h3>
                           <div className="flex items-center space-x-2 flex-shrink-0">
@@ -166,6 +170,7 @@ export default function HomeClient() {
                           style={{
                             backgroundColor: project.backgroundColor
                           }}
+                          aria-label={`Visit ${project.title} project (opens in new tab)`}
                         >
                           <div 
                             className="relative w-full h-56 sm:h-64 bg-slate-100 dark:bg-slate-700"
@@ -183,6 +188,9 @@ export default function HomeClient() {
                                   : "object-cover"
                               }`}
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              loading="lazy"
+                              placeholder="blur"
+                              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Kcp/9k="
                             />
                           </div>
                         </a>
@@ -206,9 +214,10 @@ export default function HomeClient() {
                             className="inline-flex items-center text-[#f97316] hover:text-orange-600 transition-all duration-300 group/link self-start sm:self-center"
                             rel="noopener" 
                             target="_blank"
+                            aria-label={`Visit ${project.title} project (opens in new tab)`}
                           >
                             <span className="text-sm font-medium mr-2">Visit Project</span>
-                            <svg className="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                           </a>
@@ -217,15 +226,15 @@ export default function HomeClient() {
                     ) : (
                       <>
                         <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{project.title}</h3>
+                          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white" role="heading" aria-level={3}>{project.title}</h3>
                           <span className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium">
                             Coming Soon
                           </span>
                         </div>
                         
-                        <div className="mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 h-56 sm:h-64 flex items-center justify-center">
+                        <div className="mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 h-56 sm:h-64 flex items-center justify-center" role="img" aria-label="Project preview coming soon">
                           <div className="text-slate-400 dark:text-slate-500">
-                            <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                             </svg>
                           </div>

@@ -6,6 +6,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title: "NCTNetwork - IT, Web & Network Developments",
     description: "NCTNetwork specializes in IT, Web & Network Developments. Explore our latest projects including whisky blogs and interactive mapping solutions.",
     keywords: "IT, Web Development, Network Development, React, Next.js, WordPress, Interactive Maps",
+    authors: [{ name: 'NCT Network', url: 'https://nctnetwork.co.uk' }],
+    creator: 'NCT Network',
+    publisher: 'NCT Network',
     alternates: {
       canonical: "https://nctnetwork.co.uk",
       languages: {
@@ -19,11 +22,22 @@ export async function generateMetadata(): Promise<Metadata> {
       url: "https://nctnetwork.co.uk",
       siteName: "NCTNetwork",
       type: "website",
+      locale: "en_GB",
+      images: [
+        {
+          url: "/images/og-home.jpg",
+          width: 1200,
+          height: 630,
+          alt: "NCTNetwork - IT, Web & Network Developments",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: "NCTNetwork - IT, Web & Network Developments",
       description: "Explore our latest web development projects and IT solutions",
+      creator: "@nctnetwork",
+      images: ["/images/og-home.jpg"],
     },
     other: {
       "structured-data": JSON.stringify({
