@@ -4,11 +4,8 @@ import { useEffect } from 'react'
 
 export function DeferredStyles() {
   useEffect(() => {
-    // Load main styles after critical render
-    const loadStyles = () => {
-      import('@/styles/globals.css')
-      
-      // Show below-fold content after styles load
+    // Show below-fold content after page is interactive
+    const showBelowFold = () => {
       setTimeout(() => {
         document.querySelectorAll('.below-fold').forEach((el) => {
           if (el instanceof HTMLElement) {
@@ -20,13 +17,13 @@ export function DeferredStyles() {
 
     // Load after the page is interactive
     if (document.readyState === 'loading') {
-      window.addEventListener('DOMContentLoaded', loadStyles)
+      window.addEventListener('DOMContentLoaded', showBelowFold)
     } else {
-      loadStyles()
+      showBelowFold()
     }
 
     return () => {
-      window.removeEventListener('DOMContentLoaded', loadStyles)
+      window.removeEventListener('DOMContentLoaded', showBelowFold)
     }
   }, [])
 
