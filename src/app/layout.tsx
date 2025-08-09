@@ -65,8 +65,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="preconnect" href="https://analytics.ahrefs.com" />
+        <link rel="preconnect" href="https://nctnetwork.co.uk" />
         <link rel="dns-prefetch" href="https://whiskyonthe.rocks" />
         <link rel="dns-prefetch" href="https://scotch-whisky-map-v2.vercel.app" />
+        <link rel="preload" href="/images/whiskyontherocks.png.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/images/whisky-map-clip.png" as="image" type="image/png" />
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="qUg220+3azEuraIDkbyxuA"

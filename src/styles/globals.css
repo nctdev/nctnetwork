@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Critical CSS for above-the-fold content */
+@layer base {
+  /* Inline critical styles to prevent render blocking */
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .hero-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-heading {
+      font-size: 4.5rem;
+    }
+  }
+}
+
 @layer base {
   :root {
     --background: 248 250 252;
@@ -58,6 +91,12 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    /* Prevent layout shift by setting min-height */
+    min-height: 100vh;
+    /* Optimize text rendering */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   /* Focus styles for accessibility */

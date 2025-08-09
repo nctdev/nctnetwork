@@ -2,11 +2,16 @@
 
 import { useState, useEffect } from "react"
 import { SiteHeader } from '@/components/ui/SiteHeader'
-import { Footer } from '@/components/ui/Footer'
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Image from 'next/image'
 import { projects } from '@/data/projects'
+import dynamic from 'next/dynamic'
+
+// Dynamically import footer to reduce initial bundle size
+const Footer = dynamic(() => import('@/components/ui/Footer').then(mod => ({ default: mod.Footer })), {
+  ssr: false
+})
 
 
 export default function HomeClient() {
@@ -187,7 +192,7 @@ export default function HomeClient() {
                                   ? "object-contain p-4" 
                                   : "object-cover"
                               }`}
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 330px, 330px"
                               loading="lazy"
                               placeholder="blur"
                               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Kcp/9k="

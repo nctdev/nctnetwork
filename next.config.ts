@@ -2,12 +2,52 @@
 const nextConfig = {
   reactStrictMode: true,
   
+  // Modern browser targeting is now default in Next.js 15+
+  experimental: {
+    optimizeCss: true,
+  },
+  
+  // Bundle optimization
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Enable tree shaking and code splitting
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          ...config.optimization.splitChunks,
+          cacheGroups: {
+            ...config.optimization.splitChunks?.cacheGroups,
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              chunks: 'all',
+              priority: 10,
+            },
+          },
+        },
+      }
+    }
+    return config
+  },
+  
   // Performance optimizations
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 330, 384],
+    minimumCacheTTL: 86400,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'whiskyonthe.rocks',
+      },
+      {
+        protocol: 'https',
+        hostname: 'scotch-whisky-map-v2.vercel.app',
+      },
+    ],
   },
   
   // Compression
