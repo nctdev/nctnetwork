@@ -10,7 +10,8 @@ import dynamic from 'next/dynamic'
 
 // Dynamically import footer to reduce initial bundle size
 const Footer = dynamic(() => import('@/components/ui/Footer').then(mod => ({ default: mod.Footer })), {
-  ssr: false
+  ssr: true,
+  loading: () => null,
 })
 
 
