@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   
   // Modern browser targeting is now default in Next.js 15+
@@ -7,28 +8,8 @@ const nextConfig = {
     optimizeCss: true,
   },
   
-  // Bundle optimization
-  webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      // Enable tree shaking and code splitting
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          ...config.optimization.splitChunks,
-          cacheGroups: {
-            ...config.optimization.splitChunks?.cacheGroups,
-            vendor: {
-              test: /[\\/]node_modules[\\/]/,
-              name: 'vendors',
-              chunks: 'all',
-              priority: 10,
-            },
-          },
-        },
-      }
-    }
-    return config
-  },
+  // Bundle optimization is now handled by Next.js 15+ by default
+  // Custom webpack config removed to avoid type issues in Vercel build
   
   // Performance optimizations
   images: {
