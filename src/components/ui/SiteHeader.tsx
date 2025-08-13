@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export function SiteHeader() {
   const pathname = usePathname()
@@ -76,6 +77,18 @@ export function SiteHeader() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#f97316] group-hover:w-full transition-all duration-300"></span>
                 </motion.button>
               </li>
+              <li>
+                <Link href="/tools">
+                  <motion.span 
+                    whileHover={{ y: -2 }}
+                    className="relative px-4 py-2 text-slate-700 dark:text-slate-300 hover:text-[#f97316] transition-all duration-300 font-medium group cursor-pointer inline-block"
+                    aria-label="Navigate to Tools page"
+                  >
+                    Tools
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#f97316] group-hover:w-full transition-all duration-300"></span>
+                  </motion.span>
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -128,6 +141,15 @@ export function SiteHeader() {
                 >
                   Projects
                 </motion.button>
+                <Link href="/tools">
+                  <motion.span 
+                    whileTap={{ scale: 0.95 }}
+                    className="block w-full text-left py-2 text-slate-700 dark:text-slate-300 hover:text-[#f97316] transition-colors font-medium cursor-pointer"
+                    aria-label="Navigate to Tools page"
+                  >
+                    Tools
+                  </motion.span>
+                </Link>
               </div>
             </motion.div>
           )}

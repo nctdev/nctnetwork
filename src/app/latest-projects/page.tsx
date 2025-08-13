@@ -10,16 +10,16 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: 'NCT Network',
     publisher: 'NCT Network',
     alternates: {
-      canonical: "https://nctnetwork.co.uk/#latest-projects",
+      canonical: "https://nctnetwork.co.uk/latest-projects",
       languages: {
-        "en-GB": "https://nctnetwork.co.uk/#latest-projects",
+        "en-GB": "https://nctnetwork.co.uk/latest-projects",
       },
     },
     metadataBase: new URL("https://nctnetwork.co.uk"),
     openGraph: {
       title: "Latest Projects - NCTNetwork",
       description: "Explore our latest web development projects and case studies",
-      url: "https://nctnetwork.co.uk/#latest-projects",
+      url: "https://nctnetwork.co.uk/latest-projects",
       siteName: "NCTNetwork",
       type: "website",
       locale: "en_GB",
@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
         "@type": "WebPage",
         "name": "Latest Projects",
         "description": "Portfolio of web development projects by NCTNetwork",
-        "url": "https://nctnetwork.co.uk/#latest-projects",
+        "url": "https://nctnetwork.co.uk/latest-projects",
         "isPartOf": {
           "@type": "WebSite",
           "name": "NCTNetwork",
