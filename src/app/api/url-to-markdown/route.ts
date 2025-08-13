@@ -142,7 +142,7 @@ function htmlToMarkdown(html: string): string {
     // Lists (better handling)
     .replace(/<ul[^>]*>([\s\S]*?)<\/ul>/gi, (match, content) => {
       const items = content.match(/<li[^>]*>([\s\S]*?)<\/li>/gi) || []
-      const listItems = items.map(item => {
+      const listItems = items.map((item: string) => {
         const itemContent = item.replace(/<\/?li[^>]*>/gi, '')
         return `- ${cleanTextContent(itemContent)}`
       }).join('\n')
@@ -150,7 +150,7 @@ function htmlToMarkdown(html: string): string {
     })
     .replace(/<ol[^>]*>([\s\S]*?)<\/ol>/gi, (match, content) => {
       const items = content.match(/<li[^>]*>([\s\S]*?)<\/li>/gi) || []
-      const listItems = items.map((item, index) => {
+      const listItems = items.map((item: string, index: number) => {
         const itemContent = item.replace(/<\/?li[^>]*>/gi, '')
         return `${index + 1}. ${cleanTextContent(itemContent)}`
       }).join('\n')
